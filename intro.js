@@ -1,22 +1,22 @@
 'use strict';
 (() => {
  const sentences=[
-  "Hi, I'm Dhanush Movva, a business intelligence developer and Microsoft Fabric analytics engineer based in Houston, Texas.",
-  "I help organizations turn complex data into clear insights, reliable dashboards, and smarter business workflows.",
-  "My experience spans enterprise operations, municipal services, and banking, with more than six years working across the business intelligence lifecycle.",
-  "That means understanding the business question, connecting the right data, building secure models, and delivering solutions people can actually use.",
-  "At WM, my work includes driver performance reporting across multiple business units, operational dashboards, and applications that support everyday business processes.",
-  "I've also implemented Microsoft Fabric solutions using Lakehouse, Data Pipelines, and Direct Lake models, connecting enterprise data to scalable analytics.",
-  "My technical toolkit includes Power BI, SQL, DAX, Power Query, Snowflake, and Azure, along with Power Apps, Power Automate, and Dataverse.",
-  "I care about performance, clear design, and data security, including row level security and reliable production support.",
-  "Before WM, I delivered analytics and Power Platform solutions for the City of Garland, helping stakeholders understand operations and improve reporting.",
-  "My earlier roles at Neutek Consulting and BNP Paribas strengthened my experience in data integration, dimensional modeling, and enterprise reporting.",
-  "I hold a master's degree in Information Systems from the University of Texas at Arlington, and a graduate certificate in Business Analytics.",
-  "I'm also Microsoft certified in Fabric Analytics Engineering, Power BI Data Analysis, and Power Platform Fundamentals.",
-  "What motivates me is connecting technical work with a useful business outcome, whether that means faster insights or fewer manual steps.",
-  "I'm open to full time opportunities in business intelligence, Microsoft Fabric, analytics engineering, and Power Platform, and I'm willing to relocate.",
-  "Thanks for visiting my portfolio. Explore my projects and experience, download my resume, or connect with me on LinkedIn. Let's build something impactful together."
- ];
+  "Hi, I'm Dhanush Movva. I'm an Analytics Engineer who connects data, business intelligence, and automation to help people make better decisions.",
+  "I have around five years of experience building solutions with Power BI, Microsoft Fabric, Power Platform, Snowflake, and SQL, across enterprise operations, public services, and banking.",
+  "Today, I'm a Senior Power Platform Developer at WM, delivering enterprise analytics and automation from the initial business question through to production.",
+  "I connect data from Snowflake, SQL Server, APIs, and SharePoint, then build pipelines, semantic models, DAX measures, and executive dashboards. My reporting work includes driver performance across seven or more business units.",
+  "With Microsoft Fabric, I've implemented Lakehouse, Data Pipelines, and Direct Lake solutions. One recent solution improved reporting performance by around sixty-five percent.",
+  "I also build Power Apps and Power Automate solutions that simplify everyday workflows. One application redesign our team delivered contributed to more than five hundred thousand dollars in operational cost savings.",
+  "Alongside development, I'm taking on technical leadership responsibilities, collaborating with an India-based team on solution design, development, troubleshooting, and production delivery.",
+  "For me, a successful solution needs more than a dashboard. It needs trusted data, clear business definitions, appropriate access controls, and reliable performance for the people using it.",
+  "More recently, I've been expanding into AI-driven analytics and agent-based solutions with Copilot Studio, Snowflake Cortex, and Claude.",
+  "I'm exploring how agents can help people ask questions of enterprise data and turn answers into useful actions, while respecting the permissions and governance that data requires.",
+  "Before WM, I delivered analytics and Power Platform solutions for the City of Garland. Earlier roles at Neutek Consulting and BNP Paribas built my foundation in data integration, modeling, and enterprise reporting.",
+  "I hold a master's degree in Information Systems from the University of Texas at Arlington, along with Microsoft's Power BI Data Analyst and Fabric Analytics Engineer certifications.",
+  "My strength is connecting the whole picture: the business need, the data foundation, the user experience, and the operational outcome.",
+  "For my next opportunity, I want to keep bringing analytics engineering, business intelligence, automation, and AI together to solve real business problems at scale.",
+  "Explore the projects below to see how I approach that work. If that sounds like what your team needs, I'd love to connect."
+];
  const avatar=document.querySelector('.intro-avatar');
  const play=document.getElementById('intro-play');
  const stop=document.getElementById('intro-restart');
@@ -50,7 +50,7 @@
  voiceSelect.addEventListener('change',()=>{try{localStorage.setItem('dhanush-intro-male-voice',voiceSelect.value)}catch{}if(playing)pause()});
  const updateProgress=(partial=0)=>{const completed=words.slice(0,index).reduce((a,b)=>a+b,0);progress.value=Math.min(100,(completed+partial)/total*100)};
  function scene(state){document.dispatchEvent(new CustomEvent('intro-scene',{detail:{index,state}}))}
- function render(){play.textContent=playing?'Pause introduction':complete?'Replay introduction':index>0?'Resume introduction':'Play my intro · ~2 min';play.setAttribute('aria-label',play.textContent);avatar.classList.toggle('speaking',playing&&speechActive&&!reduced.matches)}
+ function render(){play.textContent=playing?'Pause introduction':complete?'Replay introduction':index>0?'Resume introduction':'Play my intro · ~3 min';play.setAttribute('aria-label',play.textContent);avatar.classList.toggle('speaking',playing&&speechActive&&!reduced.matches)}
  function resetAnimation(){clearInterval(timer);timer=0;frame=0;avatar.classList.remove('speaking');speechActive=false}
  function beginAnimation(){resetAnimation();speechActive=true;render();scene('playing');const presenting=[3,4,5,6,7,8,9,11,12].includes(index);avatar.dataset.frame=reduced.matches?'0':presenting?'1':'0';if(!reduced.matches){timer=setTimeout(()=>{avatar.dataset.frame=presenting?'2':'0'},6500)}}
  function finish(){playing=false;complete=true;index=sentences.length;resetAnimation();progress.value=100;status.textContent='Introduction complete';avatar.dataset.frame='0';scene('complete');render()}
