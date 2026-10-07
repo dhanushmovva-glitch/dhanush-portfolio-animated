@@ -13,7 +13,7 @@
   "And now, I'm taking analytics one step further.",
   "I'm exploring AI-powered analytics and intelligent agents using Copilot Studio, Snowflake Cortex, Claude, and enterprise data.",
   "My goal is simple: Instead of users searching through dashboards for answers… I want analytics to understand the question, find the right data, and bring the answer directly to them.",
-  "Along the way, I've worked with organizations including WM, the City of Garland, and BNP Paribas, while also leading and collaborating with technical teams across different locations.",
+  "Along the way, I've worked with organizations including WM, the City of Garland, Neutek Consulting, and BNP Paribas, while also leading and collaborating with technical teams across different locations.",
   "I'm Microsoft certified in Power BI and Microsoft Fabric, and I hold a Master's degree in Information Systems from the University of Texas at Arlington.",
   "For me, technology isn't just about building dashboards.",
   "It's about connecting data, automation, analytics, and AI… to build solutions that make a real impact.",
