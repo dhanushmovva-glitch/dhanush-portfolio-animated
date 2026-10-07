@@ -6,6 +6,7 @@
  const flow=nodes=>`<div class="scene-flow">${nodes.map((n,i)=>node(n[0],n[1])+(i<nodes.length-1?'<span class="scene-connector" aria-hidden="true"><i></i></span>':'')).join('')}</div>`;
  const tiles=items=>`<div class="scene-tiles">${items.map((n,i)=>`<div class="scene-tile" style="--tile-index:${i}"><span>${String(i+1).padStart(2,'0')}</span><strong>${n}</strong></div>`).join('')}</div>`;
  const scenes={
+ automation:{title:'Smarter everyday operations.',subtitle:'Power Apps & Power Automate',html:flow([['Manual process','Identify repetitive work'],['Application','Connect people & data'],['Automation','Simplify the workflow']])},
  leadership:{title:'From design to delivery.',subtitle:'Technical collaboration with an India-based team',html:flow([['Solution design','Shared technical direction'],['Development','Build & troubleshoot'],['Production','Reliable delivery']])},
  savings:{title:'Automation with measurable impact.',subtitle:'Power Apps · Power Automate',html:`<div class="scene-education">${node('$500,000+','Operational cost savings')}${node('Team delivery','Application redesign')}</div><p class="scene-subtitle">An application redesign contributed to these savings.</p>`},
  ai:{title:'Exploring AI-driven analytics.',subtitle:'Expanding into agent-based solutions',html:tiles(['Copilot Studio','Snowflake Cortex','Claude'])},
@@ -27,14 +28,14 @@
  opportunity:{title:'Let’s build what’s next.',subtitle:'Houston, Texas · Open to relocate',html:tiles(['Business intelligence','Microsoft Fabric','Analytics engineering','Power Platform'])},
  contact:{title:'Let’s connect.',subtitle:'Explore the work. Start a conversation.',html:`<div class="scene-contact">${node('Dhanush Movva','Analytics Engineer')}<span>dhanushmovva@gmail.com</span><div class="scene-mini-tags"><span>Projects</span><span>Experience</span><span>LinkedIn</span></div></div>`}
  };
- const order=['welcome','experience','lifecycle','operations','fabric','savings','leadership','security','ai','agents','experience','credentials','impact','opportunity','contact'];
+ const order=["welcome", "welcome", "toolkit", "operations", "lifecycle", "lifecycle", "fabric", "automation", "savings", "ai", "ai", "agents", "experience", "credentials", "impact", "impact", "contact"];
  let current='';
  document.addEventListener('intro-scene',event=>{
   const {index,state}=event.detail;
   if(state==='reset'){hero.classList.remove('intro-presenting');stage.classList.remove('active','paused');current='';return}
   hero.classList.add('intro-presenting');stage.classList.add('active');stage.classList.toggle('paused',state!=='playing');
   const key=order[index]||'contact';
-  if(current===key)return;
+  if(current===key){const label=stage.querySelector('.scene-eyebrow');if(label)label.textContent=String(index+1).padStart(2,'0')+' / MY INTRODUCTION';return;}
   current=key;const scene=scenes[key];
   const panel=document.createElement('div');panel.className='scene-panel';panel.setAttribute('role','group');panel.setAttribute('aria-label',scene.title);panel.innerHTML=`<span class="scene-eyebrow">${String(index+1).padStart(2,'0')} / MY INTRODUCTION</span><h2>${scene.title}</h2><p class="scene-subtitle">${scene.subtitle}</p>${scene.html}`;
   stage.replaceChildren(panel);

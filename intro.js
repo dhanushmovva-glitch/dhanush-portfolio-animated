@@ -1,21 +1,23 @@
 'use strict';
 (() => {
  const sentences=[
-  "Hi, I'm Dhanush Movva. I'm an Analytics Engineer who connects data, business intelligence, and automation to help people make better decisions.",
-  "I have around five years of experience building solutions with Power BI, Microsoft Fabric, Power Platform, Snowflake, and SQL, across enterprise operations, public services, and banking.",
-  "Today, I'm a Senior Power Platform Developer at WM, delivering enterprise analytics and automation from the initial business question through to production.",
-  "I connect data from Snowflake, SQL Server, APIs, and SharePoint, then build pipelines, semantic models, DAX measures, and executive dashboards. My reporting work includes driver performance across seven or more business units.",
-  "With Microsoft Fabric, I've implemented Lakehouse, Data Pipelines, and Direct Lake solutions. One recent solution improved reporting performance by around sixty-five percent.",
-  "I also build Power Apps and Power Automate solutions that simplify everyday workflows. One application redesign our team delivered contributed to more than five hundred thousand dollars in operational cost savings.",
-  "Alongside development, I'm taking on technical leadership responsibilities, collaborating with an India-based team on solution design, development, troubleshooting, and production delivery.",
-  "For me, a successful solution needs more than a dashboard. It needs trusted data, clear business definitions, appropriate access controls, and reliable performance for the people using it.",
-  "More recently, I've been expanding into AI-driven analytics and agent-based solutions with Copilot Studio, Snowflake Cortex, and Claude.",
-  "I'm exploring how agents can help people ask questions of enterprise data and turn answers into useful actions, while respecting the permissions and governance that data requires.",
-  "Before WM, I delivered analytics and Power Platform solutions for the City of Garland. Earlier roles at Neutek Consulting and BNP Paribas built my foundation in data integration, modeling, and enterprise reporting.",
-  "I hold a master's degree in Information Systems from the University of Texas at Arlington, along with Microsoft's Power BI Data Analyst and Fabric Analytics Engineer certifications.",
-  "My strength is connecting the whole picture: the business need, the data foundation, the user experience, and the operational outcome.",
-  "For my next opportunity, I want to keep bringing analytics engineering, business intelligence, automation, and AI together to solve real business problems at scale.",
-  "Explore the projects below to see how I approach that work. If that sounds like what your team needs, I'd love to connect."
+  "Hi, I'm Dhanush Movva.",
+  "I'm an Analytics Engineer who enjoys turning complex data into simple, powerful solutions that help businesses make better decisions.",
+  "Over the past five years, I've worked across business intelligence, data engineering, automation, and enterprise analytics — primarily using Microsoft Power BI, Microsoft Fabric, Power Platform, Snowflake, and SQL.",
+  "Today, I work at WM, where I build enterprise analytics solutions used across multiple business areas.",
+  "My work goes far beyond creating dashboards.",
+  "I design the entire analytics journey — connecting millions of records from Snowflake, SQL Server, APIs, SharePoint, and other enterprise systems… building scalable data pipelines… creating semantic models… developing advanced DAX… and finally transforming that data into insights people can actually use.",
+  "I've also built solutions using Microsoft Fabric — including Lakehouses, Data Pipelines, Direct Lake, and enterprise semantic models — helping significantly improve reporting performance.",
+  "But analytics is only one part of what I do.",
+  "Using Power Apps and Power Automate, I build applications and automated workflows that replace manual processes and improve everyday operations. One of my application redesigns contributed to more than five hundred thousand dollars in operational cost savings.",
+  "And now, I'm taking analytics one step further.",
+  "I'm exploring AI-powered analytics and intelligent agents using Copilot Studio, Snowflake Cortex, Claude, and enterprise data.",
+  "My goal is simple: Instead of users searching through dashboards for answers… I want analytics to understand the question, find the right data, and bring the answer directly to them.",
+  "Along the way, I've worked with organizations including WM, the City of Garland, and BNP Paribas, while also leading and collaborating with technical teams across different locations.",
+  "I'm Microsoft certified in Power BI and Microsoft Fabric, and I hold a Master's degree in Information Systems from the University of Texas at Arlington.",
+  "For me, technology isn't just about building dashboards.",
+  "It's about connecting data, automation, analytics, and AI… to build solutions that make a real impact.",
+  "I'm Dhanush Movva. Welcome to my portfolio."
 ];
  const avatar=document.querySelector('.intro-avatar');
  const play=document.getElementById('intro-play');
@@ -52,7 +54,7 @@
  function scene(state){document.dispatchEvent(new CustomEvent('intro-scene',{detail:{index,state}}))}
  function render(){play.textContent=playing?'Pause introduction':complete?'Replay introduction':index>0?'Resume introduction':'Play my intro · ~3 min';play.setAttribute('aria-label',play.textContent);avatar.classList.toggle('speaking',playing&&speechActive&&!reduced.matches)}
  function resetAnimation(){clearInterval(timer);timer=0;frame=0;avatar.classList.remove('speaking');speechActive=false}
- function beginAnimation(){resetAnimation();speechActive=true;render();scene('playing');const presenting=[3,4,5,6,7,8,9,11,12].includes(index);avatar.dataset.frame=reduced.matches?'0':presenting?'1':'0';if(!reduced.matches){timer=setTimeout(()=>{avatar.dataset.frame=presenting?'2':'0'},6500)}}
+ function beginAnimation(){resetAnimation();speechActive=true;render();scene('playing');const presenting=[2,3,4,5,6,7,8,9,10,11,12,13,14,15].includes(index);avatar.dataset.frame=reduced.matches?'0':presenting?'1':'0';if(!reduced.matches){timer=setTimeout(()=>{avatar.dataset.frame=presenting?'2':'0'},6500)}}
  function finish(){playing=false;complete=true;index=sentences.length;resetAnimation();progress.value=100;status.textContent='Introduction complete';avatar.dataset.frame='0';scene('complete');render()}
  function say(token){
   if(token!==run||!playing)return;
